@@ -1,0 +1,186 @@
+Q1
+table_schema is dcris and table_name is None
+('keyword', 'BASE TABLE', 19, 'Contains broad categories of security expertise.')
+('member', 'BASE TABLE', 82, 'Contains information on Members of the CRIS directory.')
+('member_keyword', 'BASE TABLE', 307, 'Joins Keyword to Member through a lookup table.')
+('member_supp_key', 'BASE TABLE', 1296, 'Joins Member to Supp_Key through a lookup table.')
+('pub', 'BASE TABLE', 229, 'Contains representative Publications of Members.')
+('pub_type', 'BASE TABLE', 3, 'Primary key identifier for Type.')
+('supp_key', 'BASE TABLE', 160, 'Supplementary Keywords representing narrow areas of a Member')
+('v_keyword_supp_key', 'VIEW', None, 'VIEW')
+('v_member_keyword', 'VIEW', None, 'VIEW')
+('v_member_supp_key', 'VIEW', None, 'VIEW')
+
+
+table_schema is dcris and table_name is keyword
+('keyword', 'BASE TABLE', 19, 'Contains broad categories of security expertise.')
+
+Q2
+table_schema is dcris and table_name is None
+('keyword', 'keyword_id', 'NO', 'tinyint')
+('keyword', 'k_desc', 'NO', 'varchar')
+('member', 'address', 'YES', 'longtext')
+('member', 'email', 'YES', 'varchar')
+('member', 'fax', 'YES', 'varchar')
+('member', 'first_name', 'YES', 'varchar')
+('member', 'institution', 'YES', 'longtext')
+('member', 'last_name', 'NO', 'varchar')
+('member', 'member_id', 'NO', 'smallint')
+('member', 'telephone', 'YES', 'varchar')
+('member', 'title', 'YES', 'varchar')
+('member_keyword', 'keyword_id', 'NO', 'tinyint')
+('member_keyword', 'member_id', 'NO', 'smallint')
+('member_supp_key', 'member_id', 'NO', 'smallint')
+('member_supp_key', 'supp_key_id', 'NO', 'smallint')
+('pub', 'authors', 'YES', 'longtext')
+('pub', 'conference', 'YES', 'longtext')
+('pub', 'date', 'YES', 'longtext')
+('pub', 'journal', 'YES', 'longtext')
+('pub', 'member_id', 'NO', 'smallint')
+('pub', 'publisher', 'YES', 'longtext')
+('pub', 'pub_id', 'NO', 'smallint')
+('pub', 'pub_type_id', 'NO', 'char')
+('pub', 'p_title', 'NO', 'longtext')
+('pub', 'volume', 'YES', 'longtext')
+('pub_type', 'pt_desc', 'NO', 'varchar')
+('pub_type', 'pub_type_id', 'NO', 'char')
+('supp_key', 'keyword_id', 'NO', 'tinyint')
+('supp_key', 'sk_desc', 'NO', 'varchar')
+('supp_key', 'supp_key_id', 'NO', 'smallint')
+('v_keyword_supp_key', 'keyword_id', 'NO', 'tinyint')
+('v_keyword_supp_key', 'k_desc', 'NO', 'varchar')
+('v_keyword_supp_key', 'sk_desc', 'NO', 'varchar')
+('v_keyword_supp_key', 'supp_key_id', 'NO', 'smallint')
+('v_member_keyword', 'address', 'YES', 'longtext')
+('v_member_keyword', 'email', 'YES', 'varchar')
+('v_member_keyword', 'fax', 'YES', 'varchar')
+('v_member_keyword', 'first_name', 'YES', 'varchar')
+('v_member_keyword', 'institution', 'YES', 'longtext')
+('v_member_keyword', 'keyword_id', 'NO', 'tinyint')
+('v_member_keyword', 'k_desc', 'NO', 'varchar')
+('v_member_keyword', 'last_name', 'NO', 'varchar')
+('v_member_keyword', 'member_id', 'NO', 'smallint')
+('v_member_keyword', 'telephone', 'YES', 'varchar')
+('v_member_keyword', 'title', 'YES', 'varchar')
+('v_member_supp_key', 'address', 'YES', 'longtext')
+('v_member_supp_key', 'email', 'YES', 'varchar')
+('v_member_supp_key', 'fax', 'YES', 'varchar')
+('v_member_supp_key', 'first_name', 'YES', 'varchar')
+('v_member_supp_key', 'institution', 'YES', 'longtext')
+('v_member_supp_key', 'keyword_id', 'NO', 'tinyint')
+('v_member_supp_key', 'k_desc', 'NO', 'varchar')
+('v_member_supp_key', 'last_name', 'NO', 'varchar')
+('v_member_supp_key', 'member_id', 'NO', 'smallint')
+('v_member_supp_key', 'sk_desc', 'NO', 'varchar')
+('v_member_supp_key', 'supp_key_id', 'NO', 'smallint')
+('v_member_supp_key', 'telephone', 'YES', 'varchar')
+('v_member_supp_key', 'title', 'YES', 'varchar')
+
+
+table_schema is dcris and table_name is member
+('member', 'address', 'YES', 'longtext')
+('member', 'email', 'YES', 'varchar')
+('member', 'fax', 'YES', 'varchar')
+('member', 'first_name', 'YES', 'varchar')
+('member', 'institution', 'YES', 'longtext')
+('member', 'last_name', 'NO', 'varchar')
+('member', 'member_id', 'NO', 'smallint')
+('member', 'telephone', 'YES', 'varchar')
+('member', 'title', 'YES', 'varchar')
+
+
+Q3
+table_schema is dcris and constraint_type is None
+('FK_mk_keyword', 'member_keyword', 'FOREIGN KEY')
+('FK_mk_member', 'member_keyword', 'FOREIGN KEY')
+('FK_msk_member', 'member_supp_key', 'FOREIGN KEY')
+('FK_msk_supp_key', 'member_supp_key', 'FOREIGN KEY')
+('FK_pub_member', 'pub', 'FOREIGN KEY')
+('FK_pub_type', 'pub', 'FOREIGN KEY')
+('FK_supp_key_keyword', 'supp_key', 'FOREIGN KEY')
+('IN_k_desc', 'keyword', 'UNIQUE')
+('IN_pt_desc', 'pub_type', 'UNIQUE')
+('IN_sk_desc', 'supp_key', 'UNIQUE')
+('PRIMARY', 'keyword', 'PRIMARY KEY')
+('PRIMARY', 'member', 'PRIMARY KEY')
+('PRIMARY', 'member_keyword', 'PRIMARY KEY')
+('PRIMARY', 'member_supp_key', 'PRIMARY KEY')
+('PRIMARY', 'pub', 'PRIMARY KEY')
+('PRIMARY', 'pub_type', 'PRIMARY KEY')
+('PRIMARY', 'supp_key', 'PRIMARY KEY')
+
+
+table_schema is dcris and constraint_type is FOREIGN KEY
+('FK_mk_keyword', 'member_keyword', 'FOREIGN KEY')
+('FK_mk_member', 'member_keyword', 'FOREIGN KEY')
+('FK_msk_member', 'member_supp_key', 'FOREIGN KEY')
+('FK_msk_supp_key', 'member_supp_key', 'FOREIGN KEY')
+('FK_pub_member', 'pub', 'FOREIGN KEY')
+('FK_pub_type', 'pub', 'FOREIGN KEY')
+('FK_supp_key_keyword', 'supp_key', 'FOREIGN KEY')
+
+
+Q4
+constraint_type is dcris and table_name is None and ref_table_name is None
+('FK_mk_keyword', 'CASCADE', 'CASCADE', 'member_keyword', 'keyword')
+('FK_mk_member', 'CASCADE', 'CASCADE', 'member_keyword', 'member')
+('FK_msk_member', 'CASCADE', 'CASCADE', 'member_supp_key', 'member')
+('FK_msk_supp_key', 'CASCADE', 'CASCADE', 'member_supp_key', 'supp_key')
+('FK_pub_member', 'CASCADE', 'CASCADE', 'pub', 'member')
+('FK_pub_type', 'RESTRICT', 'RESTRICT', 'pub', 'pub_type')
+('FK_supp_key_keyword', 'CASCADE', 'CASCADE', 'supp_key', 'keyword')
+
+
+constraint_type is dcris and table_name is pub and ref_table_name is None
+('FK_pub_member', 'CASCADE', 'CASCADE', 'pub', 'member')
+('FK_pub_type', 'RESTRICT', 'RESTRICT', 'pub', 'pub_type')
+
+
+constraint_type is dcris and table_name is None and ref_table_name is member
+('FK_mk_member', 'CASCADE', 'CASCADE', 'member_keyword', 'member')
+('FK_msk_member', 'CASCADE', 'CASCADE', 'member_supp_key', 'member')
+('FK_pub_member', 'CASCADE', 'CASCADE', 'pub', 'member')
+
+
+constraint_type is dcris and table_name is pub and ref_table_name is member
+('FK_pub_member', 'CASCADE', 'CASCADE', 'pub', 'member')
+
+
+Q5
+constraint_type is dcris and table_name is None and ref_table_name is None
+('FK_mk_keyword', 'member_keyword', 'keyword_id', 'keyword', 'keyword_id')
+('FK_mk_member', 'member_keyword', 'member_id', 'member', 'member_id')
+('FK_msk_member', 'member_supp_key', 'member_id', 'member', 'member_id')
+('FK_msk_supp_key', 'member_supp_key', 'supp_key_id', 'supp_key', 'supp_key_id')
+('FK_pub_member', 'pub', 'member_id', 'member', 'member_id')
+('FK_pub_type', 'pub', 'pub_type_id', 'pub_type', 'pub_type_id')
+('FK_supp_key_keyword', 'supp_key', 'keyword_id', 'keyword', 'keyword_id')
+('IN_k_desc', 'keyword', 'k_desc', None, None)
+('IN_pt_desc', 'pub_type', 'pt_desc', None, None)
+('IN_sk_desc', 'supp_key', 'keyword_id', None, None)
+('IN_sk_desc', 'supp_key', 'sk_desc', None, None)
+('PRIMARY', 'pub_type', 'pub_type_id', None, None)
+('PRIMARY', 'member_supp_key', 'member_id', None, None)
+('PRIMARY', 'supp_key', 'supp_key_id', None, None)
+('PRIMARY', 'member_supp_key', 'supp_key_id', None, None)
+('PRIMARY', 'keyword', 'keyword_id', None, None)
+('PRIMARY', 'member', 'member_id', None, None)
+('PRIMARY', 'member_keyword', 'member_id', None, None)
+('PRIMARY', 'pub', 'pub_id', None, None)
+('PRIMARY', 'member_keyword', 'keyword_id', None, None)
+
+
+constraint_type is dcris and table_name is pub and ref_table_name is None
+('FK_pub_member', 'pub', 'member_id', 'member', 'member_id')
+('FK_pub_type', 'pub', 'pub_type_id', 'pub_type', 'pub_type_id')
+('PRIMARY', 'pub', 'pub_id', None, None)
+
+
+constraint_type is dcris and table_name is None and ref_table_name is pub_type
+('FK_pub_type', 'pub', 'pub_type_id', 'pub_type', 'pub_type_id')
+
+
+constraint_type is dcris and table_name is pub and ref_table_name is pub_type
+('FK_pub_type', 'pub', 'pub_type_id', 'pub_type', 'pub_type_id')
+
+

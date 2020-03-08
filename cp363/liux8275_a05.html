@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment 5</title>
+</head>
+<body>
+
+	<h1>Assignment 5   </h1>
+	<hr/>
+	<h3>Name:Liang Liu </h3>
+	<h3>Student ID: 153182750</h3>
+	<hr/>
+	<h4>Contents Description</h4>
+	
+	<p>There are six regular table in my database schema. They are:<br/>
+		<font color="red">"champ"  </font> includes: champ_id, position, attack, defense, armor, hp, monster_id, items_id, monster_type<br/>
+		<font color="red">"champ_detail" </font> includes: champ_id, kill, champ_name, death<br/>
+		<font color="red">"game" </font>includes: createTime, game_id, summoners_id, game_mode, winner<br/>
+		<font color="red">"items" </font> includes: items_id, items_name, type, price<br/>
+		<font color="red">"monster" </font>includes: monster_name, monster_id, buff, spawn_time, monster_type<br/>
+		<font color="red">"summoners" </font> includes: region, summoners_id, champ_id, summoners_name, rating, create, total_start_year<br/>
+	
+		There are two view table called <br/>
+		<font color="red">"v_champ_detail"</font>includes:champ_id, kill, champ_name, death,position, attack, defense, armor, hp, monster_id, items_id, monster_type<br/>
+		<font color="red">"v_summoners_items"</font>includes:region, summoners_id, champ_id, summoners_name, rating, create, total_start_year, items_id, items_name, type, price<br/>
+		
+		There are one prosedure called: <br/>
+		<font color="red">"uppercaseSummonersName" </font>to change lowercase of summoner name to uppercase<br/>
+		
+		There's one function called: <br/>
+		<font color="red">"getMaxKill"</font> <br/>
+		
+		There's one trigger called:  <br/>
+		<font color="red">"champ_before_update"</font> <br/>
+		
+		There's one even called:  <br/>
+		<font color="red">"year_update"</font> <br/>
+	</p>
+	<hr/>
+	<h4>Purpose Description</h4>
+	<p>
+	"uppercaseSummonersName" to change lowercase of summoner name to uppercase in "summoners" table<br/>
+	"getMaxKill" to get maximum kill from "champ_detail" table<br/>
+	"champ_before_update" to change champ position in "champ" table whoever defense is greater than 15<br/>
+	"year_update" update total_start_year from table "summoners" every year from start year
+	</p>
+	<hr/>
+	
+	<h4>Source Description</h4>
+	
+	<p>The data is based on OP.GG website. It is a website that players can search their match history in the game</p>
+
+</body>
+</html>

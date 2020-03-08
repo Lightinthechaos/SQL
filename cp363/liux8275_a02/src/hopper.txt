@@ -1,0 +1,5 @@
+[database]
+user = liux8275
+password = Qiao8522493
+host = rshopper.wlu.ca
+database = liux8275
